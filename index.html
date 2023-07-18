@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signup Form</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to right, #667eea, #764ba2);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+    }
+
+    h2 {
+      color: #764ba2;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+
+    input[type="submit"] {
+      width: 50%;
+      padding: 10px;
+      background-color: #764ba2;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #5d3887;
+    }
+
+    .error {
+      color: red;
+      margin-top: -10px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .red{
+        color: red;
+        text-align: left;
+        margin: 25px;
+       
+    }
+  </style>
+</head>
+<body>
+ 
+  <form id="signup-form" onsubmit=" return validate()" action="">
+    <h1 style="color: #5d3887;">Form Validation </h1>
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <p class="red" id="u"></p>
+
+    <input type="password" id="password" placeholder="Password">
+    <p class="red" id="p"></p>
+    <input type="submit" value="Sign Up">
+    <div id="error-username" class="error"></div>
+    <div id="error-password" class="error"></div>
+  </form>
+  <script>
+    let username=document.getElementById("username");
+    let password=document.getElementById("password");
+    let flag=1;
+    function validate()
+    {
+        if(username.value=="")
+        {
+
+            document.getElementById("u").innerHTML="user name is empty";
+            flag=0;
+
+
+       
+            
+
+
+        }else if(username.value.length<3)
+        {
+            document.getElementById("u").innerHTML="user name required minimum 3 character";
+            flag=0;
+
+
+        } else{
+            document.getElementById("u").innerHTML="";
+            flag=1;
+
+
+        }
+        
+        if(password.value=="")
+        {
+            document.getElementById("p").innerHTML="password  is empty";
+            flag=0;
+
+
+        }
+        else{
+            document.getElementById("p").innerHTML="";
+            flag=1;
+            
+        }
+       if(flag){
+
+        return true;
+
+       }
+       
+       else{
+
+        return false;
+
+
+       }
+
+    }
+  </script>
+
+  
+</body>
+</html>
